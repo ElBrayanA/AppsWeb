@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VUE</title>
+    <style>
+        button {
+            color: white;
+            background-color: blue;
+            height: 50px;
+            width: 250px;
+            font-family: Arial;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="js">
+        <h1>Contador: {{contador}}</h1>
+        <button v-on:click="incrementar()">Incrementar</button>
+        <button v-on:click="restar()">restar</button>
+        <button v-on:click="reset()">reset</button>
+        
+        
+    </div>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+        Vue.createApp({
+            data() {
+                return {
+                    contador: 5
+                }
+            },
+            methods: {
+                restar(){
+                    this.contador--;
+                    if(this.contador < 0){
+                        this.contador = 0;
+                        alert("No se admiten numeros negativos");
+                    }
+                },
+                incrementar(){
+                    this.contador++;
+                    if(this.contador == 50){
+                        this.contador = 50;
+                        alert("El Limite es 50")
+                    }
+                },
+                reset(){
+                    this.contador =0;
+                }
+            }
+        }).mount("#js");
+    </script>
+
+</body>
+
+</html>
