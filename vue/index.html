@@ -18,46 +18,23 @@
 </head>
 
 <body>
-
     <div id="js">
-        <h1>Contador: {{contador}}</h1>
-        <button v-on:click="incrementar()">Incrementar</button>
-        <button v-on:click="restar()">restar</button>
-        <button v-on:click="reset()">reset</button>
-        
-        
+        <h1>Contador:{{contador}}</h1>
+        <button v-on:click ="incrementar()">Incrementar</button>
+        <button v-on:click ="restar()">Restar</button>
+        <button v-on:click ="reset()">Reset</button>
+
+    </div>
+    <div id="App">
+        <h1 v-if="becado==true">Ya tengo beca</h1> 
+        <h1 v-if="becado==false">Ya no tengo beca</h1> 
+        <button @click="conBeca">Estas becado</button>
+        <button @click="sinbeca">Ya no estas becado</button>
     </div>
 
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-    <script>
-        Vue.createApp({
-            data() {
-                return {
-                    contador: 5
-                }
-            },
-            methods: {
-                restar(){
-                    this.contador--;
-                    if(this.contador < 0){
-                        this.contador = 0;
-                        alert("No se admiten numeros negativos");
-                    }
-                },
-                incrementar(){
-                    this.contador++;
-                    if(this.contador == 50){
-                        this.contador = 50;
-                        alert("El Limite es 50")
-                    }
-                },
-                reset(){
-                    this.contador =0;
-                }
-            }
-        }).mount("#js");
-    </script>
-
+    <script src="condicionales.js"></script>
+    <script src="contador.js"></script>
 </body>
 
 </html>
