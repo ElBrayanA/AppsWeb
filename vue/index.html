@@ -26,15 +26,37 @@
 
     </div>
     <div id="App">
-        <h1 v-if="becado==true">Ya tengo beca</h1> 
-        <h1 v-if="becado==false">Ya no tengo beca</h1> 
+        <h1 v-if="becado">Ya tengo beca</h1> 
+        <h1 v-else>Ya no tengo beca</h1> 
         <button @click="conBeca">Estas becado</button>
         <button @click="sinbeca">Ya no estas becado</button>
     </div>
 
+    <div id='MD'>
+        <h1>Mi nombre es: {{nombre}} </h1>
+        <input v-model = "nombre" type="text"></input>
+
+        <h1>Carrera {{carrera}}</h1>
+        <select v-model="carrera">
+            <option>Software</option>
+            <option>Matematicas</option>
+            <option>Fotografia</option>
+            <option>Deportes</option>
+        </select>
+
+        <h1>Mi edad es {{edad}}</h1>
+        <input v-model = "edad" type="number"></input>
+        <h2>{{resultado}}</h2>
+        <button @click = "calcular_edad()">Calcular edad</button>
+        
+        
+        
+    </div>
+
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-    <script src="condicionales.js"></script>
+    <script src="model.js"></script>
     <script src="contador.js"></script>
+    <script src="condicionales.js"></script>
 </body>
 
 </html>
