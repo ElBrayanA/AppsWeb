@@ -20,21 +20,21 @@
 <body>
     <div id="js">
         <h1>Contador:{{contador}}</h1>
-        <button v-on:click ="incrementar()">Incrementar</button>
-        <button v-on:click ="restar()">Restar</button>
-        <button v-on:click ="reset()">Reset</button>
+        <button v-on:click="incrementar()">Incrementar</button>
+        <button v-on:click="restar()">Restar</button>
+        <button v-on:click="reset()">Reset</button>
 
     </div>
     <div id="App">
-        <h1 v-if="becado">Ya tengo beca</h1> 
-        <h1 v-else>Ya no tengo beca</h1> 
+        <h1 v-if="becado">Ya tengo beca</h1>
+        <h1 v-else>Ya no tengo beca</h1>
         <button @click="conBeca">Estas becado</button>
         <button @click="sinbeca">Ya no estas becado</button>
     </div>
 
     <div id='MD'>
         <h1>Mi nombre es: {{nombre}} </h1>
-        <input v-model = "nombre" type="text"></input>
+        <input v-model="nombre" type="text"></input>
 
         <h1>Carrera {{carrera}}</h1>
         <select v-model="carrera">
@@ -45,18 +45,29 @@
         </select>
 
         <h1>Mi edad es {{edad}}</h1>
-        <input v-model = "edad" type="number"></input>
+        <input v-model="edad" type="number"></input>
         <h2>{{resultado}}</h2>
-        <button @click = "calcular_edad()">Calcular edad</button>
-        
-        
-        
+        <button @click="calcular_edad()">Calcular edad</button>
+    </div>
+
+    <div id="CR">
+        <h1>Lista de Carrito</h1>
+        <input v-model="producto" type="text" placeholder="Nombre del producto">
+        <button @click="agregarProducto" id="button2">Agregar</button>
+        <button @click="carrito=[]">Limpiarcarrito</button>
+
+        <ul>
+            <li v-for="producto in carrito">
+                {{producto}}
+            </li>
+        </ul>
     </div>
 
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script src="model.js"></script>
     <script src="contador.js"></script>
     <script src="condicionales.js"></script>
+    <script src="Carrito.js"></script>
 </body>
 
 </html>
