@@ -1,17 +1,17 @@
 Vue.createApp({
     data(){
         return{
-            carrito:[
+          /*   carrito:[
               
             ],
-            producto:""
+            producto:"" */
         }
     },
     methods:{
-        agregarProducto(){
+       /*  agregarProducto(){
             this.carrito.push(this.producto);
             this.producto="";
-        }
+        } */
     }
 
     },
