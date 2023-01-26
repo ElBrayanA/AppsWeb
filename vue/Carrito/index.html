@@ -14,24 +14,36 @@
 
     <div class="container mt-3" id="CR">
         <h1>Mis Productos</h1>
-        <form>
+        <form @submit.prevent="AgregarProductos()">
             <div class="mb-3">
                 <label class="form-label">Nombre del producto</label>
-                <input type="text" class="form-control">
+                <input v-model="nombre" type="text" class="form-control" required>
             </div>
             <div class="mb-3">
                 <label class="form-label">Precio del producto</label>
-                <input type="number" class="form-control">
+                <input v-model="precio" type="number" class="form-control" required>
 
             </div>
             <div class="mb-3">
                 <label class="form-label">Cantidad de productos</label>
-                <input type="number" class="form-control">
+                <input v-model="cantidad" type="number" class="form-control" required>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Color</label>
+                <input v-model="color" type="text" class="form-control" required>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Departamento</label>
+                <input v-model="departamento" type="text" class="form-control" required>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Fecha Venta</label>
+                <input v-model="fecha" type="date" class="form-control" required>
             </div>
 
-                <button type="submit" class="btn btn-primary">Agregar</button>
-
+                <button class="btn btn-primary" @click type="submit">Agregar</button>
         </form>
+        <button class="btn btn-primary" @click="clear()" type="button">Limpiar</button>
 
         <div class="table mt-5">
         <table class="table">
@@ -40,26 +52,23 @@
                     <th scope="col">Nombre</th>
                     <th scope="col">Precio</th>
                     <th scope="col">Cantidad</th>
+                    <th scope="col">Color</th>
+                    <th scope="col">Departamento</th>
+                    <th scope="col">Fecha Venta</th>
+                    
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
+
+                <tr v-for="producto in productos">
+                    <th>{{producto.nombre}}</th>
+                    <td>{{producto.precio}}</td>
+                    <td>{{producto.cantidad}}</td>
+                    <td>{{producto.color}}</td>
+                    <td>{{producto.departamento}}</td>
+                    <td>{{producto.fecha}}</td>
                 </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                </tr>
-                <tr>
-                    <th scope="row">3</th>
-                    <td colspan="2">Larry the Bird</td>
-                    <td>@twitter</td>
-                </tr>
+
             </tbody>
         </table>
         </div>
