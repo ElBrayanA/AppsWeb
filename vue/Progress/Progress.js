@@ -1,8 +1,8 @@
-Vue.createApp({
+const app = Vue.createApp({
     data(){
         return{
-            carga:""
+            carga:0
         }
 
     }
-}).mount("#PR")
+})
