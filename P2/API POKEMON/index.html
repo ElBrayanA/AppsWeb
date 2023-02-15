@@ -2,43 +2,64 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-    <title>API POKEMON</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+  <title>API POKEMON</title>
 </head>
 
 <body>
 
-    <div class="container mt-5" id="API">
-
-        <button @click="getPokemon" class="btn btn-success">Get</button>
-
-        <div v-if="Pokemon != null" class="card" style="width: 18rem;">
-            <img :src="Pokemon.sprites.other.dream_world.front_default" class="card-img-top" alt="">
-            <div class="card-body">
-              <h5 class="card-title">{{Pokemon.name}}</h5>
-              <p class="card-text"></p>
-            </div>
-            <ul class="list-group list-group-flush">
-              <li class="list-group-item">Experiencia base: {{Pokemon.base_experience}}</li>
-              <li class="list-group-item">id: {{Pokemon.id}}</li>
-              <li class="list-group-item">peso: {{Pokemon.weight}}</li>
+  <div class="container mt-5" id="API">
+    <button @click="getPokemon" class="btn btn-success">Get</button>
+    
+    <div v-if="Pokemon != null" class="card mt-3" style="width: 18rem;">
+      <img :src="Pokemon.sprites.other.dream_world.front_default" class="card-img-top" alt="">
+      <div class="card-body">
+        <h5 class="card-title">{{Pokemon.name}}</h5>
+        <p class="card-text">Habilidades: </p>
+        <span v-for="abilidad in Pokemon.abilities" class="mx-1 badge bg-success">
+          {{abilidad.ability.name}}
+        </span>
+        <p>
+          <button class="btn btn-success mt-2" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample"
+            aria-expanded="false" aria-controls="collapseExample">
+            Movimientos
+          </button>
+        </p>
+        <div class="collapse" id="collapseExample">
+          <div class="card card-body">
+            <ul v-for="Move in Pokemon.moves" class="list-group list-group-flush">
+              <li class="list-group-item">{{Move.move.name}}</li>
             </ul>
           </div>
-
+        </div>
+      </div>
+      <ul  class="list-group list-group-flush">
+        <li class="list-group-item">id: {{Pokemon.id}}</li>
+        <li class="list-group-item">peso: {{Pokemon.weight}}</li>
+      </ul>
+    
     </div>
+    <div v-if="Pokemon !=null " v-for="tipos in Pokemon.types" class="alert alert-warning alert-dismissible fade show" role="alert">
+      <strong>Tipos: {{tipos.type.name}}</strong> 
+      <button data-bs-dismiss="success" ></button>
+    </div>
+   
+
+  </div>
 
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
-        crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+    crossorigin="anonymous"></script>
 
-    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 
-    <script src="vue.js"></script>
+  <script src="vue.js"></script>
 </body>
 
 </html>
+<!--stats,tipos,game_indices,movimientos-->
