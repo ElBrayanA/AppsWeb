@@ -14,8 +14,9 @@
 
   <div class="container mt-5" id="API">
     <button @click="getPokemon" class="btn btn-success">Get</button>
-    
-    <div v-if="Pokemon != null" class="card mt-3" style="width: 18rem;">
+
+
+    <div v-for="Carta in Pokemon" v-if="Pokemon != null" class="card mt-3" style="width: 18rem;">
       <img :src="Pokemon.sprites.other.dream_world.front_default" class="card-img-top" alt="">
       <div class="card-body">
         <h5 class="card-title">{{Pokemon.name}}</h5>
@@ -43,13 +44,8 @@
       </ul>
     
     </div>
-    <div v-if="Pokemon !=null " v-for="tipos in Pokemon.types" class="alert alert-warning alert-dismissible fade show" role="alert">
-      <strong>Tipos: {{tipos.type.name}}</strong> 
-      <button data-bs-dismiss="success" ></button>
-    </div>
-   
 
-  </div>
+  </div> 
 
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
