@@ -12,11 +12,10 @@
 
 <body>
 
-  <div class="container mt-5" id="API">
-    <button @click="getPokemon" class="btn btn-success">Get</button>
+  <div class="container mt-3" id="API">
 
-
-    <div v-for="Carta in Pokemon" v-if="Pokemon != null" class="card mt-3" style="width: 18rem;">
+    <div class="d-flex flex-wrap">
+     <div  v-for="Pokemon in PokemonEs"  class="card mt-3" style="width: 18rem;">
       <img :src="Pokemon.sprites.other.dream_world.front_default" class="card-img-top" alt="">
       <div class="card-body">
         <h5 class="card-title">{{Pokemon.name}}</h5>
@@ -27,7 +26,7 @@
         <p>
           <button class="btn btn-success mt-2" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample"
             aria-expanded="false" aria-controls="collapseExample">
-            Movimientos
+            Movimientos:
           </button>
         </p>
         <div class="collapse" id="collapseExample">
@@ -44,7 +43,7 @@
       </ul>
     
     </div>
-
+    </div>
   </div> 
 
 
