@@ -1,7 +1,9 @@
 Vue.createApp({
     data() {
         return {
-            PokemonEs:[]
+            PokemonEs:[],
+            loading:null,
+            cantidad:0
         }
     },
     mounted(){
@@ -14,7 +16,8 @@ Vue.createApp({
          Put ---- modificar recursos
          Delete --- elimminar recursos */
         async getPokemon() {
-            for(i=1;i<=101;i++){
+            this.loading=true
+            for(i=1;i<=this.cantidad;i++){
 /*             const random = Math.floor(Math.random() * 630);
  */            const response = await fetch('https://pokeapi.co/api/v2/pokemon/'+ i, {
                 method: 'GET'
@@ -23,7 +26,7 @@ Vue.createApp({
             this.Pokemon=data;
             this.PokemonEs.push(this.Pokemon);
         }
-        console.log(this.PokemonEs);
+        this.loading=false
         }
     }
 
