@@ -19,7 +19,7 @@ Vue.createApp({
             this.loading=true
             for(i=1;i<=this.cantidad;i++){
 /*             const random = Math.floor(Math.random() * 630);
- */            const response = await fetch('https://rickandmortyapi.com/api/character/'+ i, {
+ */            const response = await fetch('https://pokeapi.co/api/v2/pokemon/'+ i, {
                 method: 'GET'
             });
             const data = await response.json();
