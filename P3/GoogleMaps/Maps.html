@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mi primer Maps</title>
+</head>
+<body>
+    <h1>Mi primer google maps</h1>
+    <div id="googleMap" style="width:100%;height:800px;"></div>
+    <script>
+        function myMap(){
+
+            var myCenter = new google.maps.LatLng(32.45612,-114.77186);
+
+            var mapProp={
+                center: myCenter,
+                zoom:5,
+            };
+
+            var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
+            var maker = new google.maps.Marker({position: myCenter});
+            maker.setMap(map);
+        }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC4iJjVReBsmNjwTQKpqtYWoNRL3CTDJSA&callback=myMap"></script>
+</body>
+</html>
